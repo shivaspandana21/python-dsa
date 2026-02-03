@@ -1,0 +1,631 @@
+# Trees
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.children=[]
+
+root=Node("A")
+nB=Node("B")
+nC=Node("C")
+nD=Node("D")
+nE=Node("E")
+
+#creating connections in them
+root.children.append(nB)
+root.children.append(nC)
+root.children.append(nD)
+
+#appending child C
+nC.children.append(nE)
+
+def print_tree(node,level=0):
+    print(" "*level+str(node.data))
+    for c in node.children:
+        print_tree(c,level+1)
+
+print_tree(root)
+
+#tree implementation
+
+
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+
+#Build the class for Tree Operations
+def build_tree(root,data):
+    if root is None:
+        return Node(data)
+    
+    if data<root.data:
+        root.left=build_tree(root.left,data)
+    else:
+        root.right=build_tree(root.right,data)
+
+    return root
+
+#BFS traversal
+def bfs(root):
+  if root is None:
+    return
+  queue=[root]
+  while queue:
+    current=queue.pop(0)
+    print(current.data,end=" ")
+    if current.left:
+      queue.append(current.left)
+    if current.right:
+      queue.append(current.right)
+
+
+def preOrder(root):
+    if root is None:
+        return
+    
+    print(root.data,end=" ")
+    preOrder(root.left)
+    preOrder(root.right)
+
+def inOrder(root):
+    if root is None:
+        return
+    
+    inOrder(root.left)
+    print(root.data,end=" ")
+    inOrder(root.right)
+
+def postOrder(root):
+    if root is None:
+        return
+    
+    postOrder(root.left)
+    postOrder(root.right)
+    print(root.data,end=" ")
+    
+values=list(map(int,input("enter the values: ").split()))
+root=None
+for i in values:
+    root=build_tree(root,i)
+
+print("\npreorder traversal- ")
+preOrder(root)
+
+print("\ninorder traversal- ")
+inOrder(root)
+
+print("\npostorder traversal- ")
+postOrder(root)
+
+print("\n Listorder traversal- ")
+bfs(root)
+
+
+###  STACK  ###    
+#Stack -> DS with continous memory allocation , it folls LIFO
+
+stack=[10,2,37,11,98,24,60]
+print("stack before insert- ",stack)
+ 
+#insert 
+stack.append(80)
+print("stack after insert- ",stack)
+
+#deletion
+stack.pop()
+print("stack after delete- ",stack)
+print()
+
+
+queue=[5,66,777,8888,99999]
+print("queue before insert- ",queue)
+ 
+#insert at last
+queue.append(1000000)
+print("queue after insert- ",queue)
+
+#deletion from queue
+queue.pop(0)
+print("queue after delete- ",queue)
+
+from collections import deque
+
+dequeue=[5,66,777,8888,99999]
+print("dequeue before insert- ",dequeue)
+
+#insert at front
+dequeue.insert(0,33)
+print("dequeue after insert at front - ",dequeue)
+
+ 
+#delete at front
+dequeue.pop(0)
+print("dequeue after deletion at front- ",dequeue)
+
+#deletion from queue at last
+dequeue.pop()
+print("queue after delete at last - ",dequeue)
+
+from collections import deque
+#rotation of deque
+d=deque([1,2,3,4,5])
+print("original deque= ",d)
+
+d.rotate(3)
+print("rotated right: ",d)
+
+d.rotate(-2)
+print("rotated left: ",d)
+
+df=deque(maxlen=2)
+df.append(3)
+df.append(4)
+df.append(6)
+df.append(9)
+print("limited dq: ",df)
+print("Count of 5",df.count(5))
+
+
+#tree implementation
+
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+
+#Build the class for Tree Operations
+def build_tree(root,data):
+    if root is None:
+        return Node(data)
+    
+    if data<root.data:
+        root.left=build_tree(root.left,data)
+    else:
+        root.right=build_tree(root.right,data)
+
+    return root
+
+
+#BFS traversal
+def bfs(root):
+  if root is None:
+    return
+  queue=[root]
+  while queue:
+    current=queue.pop(0)
+    print(current.data,end=" ")
+    if current.left:
+      queue.append(current.left)
+    if current.right:
+      queue.append(current.right)
+
+
+def preOrder(root):
+    if root is None:
+        return
+    
+    print(root.data,end=" ")
+    preOrder(root.left)
+    preOrder(root.right)
+
+def inOrder(root):
+    if root is None:
+        return
+    
+    inOrder(root.left)
+    print(root.data,end=" ")
+    inOrder(root.right)
+
+def postOrder(root):
+    if root is None:
+        return
+    
+    postOrder(root.left)
+    postOrder(root.right)
+    print(root.data,end=" ")
+    
+values=list(map(int,input("enter the values: ").split()))
+root=None
+for i in values:
+    root=build_tree(root,i)
+
+print("\npreorder traversal- ")
+preOrder(root)
+
+print("\ninorder traversal- ")
+inOrder(root)
+
+print("\npostorder traversal- ")
+postOrder(root)
+
+
+#Count Total Number of Nodes
+#tree implementation
+
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+
+#Build the class for Tree Operations
+def build_tree(root,data):
+    if root is None:
+        return Node(data)
+    
+    if data<root.data:
+        root.left=build_tree(root.left,data)
+    else:
+        root.right=build_tree(root.right,data)
+
+    return root
+
+
+   
+
+#BFS traversal
+def bfs(root):
+  if root is None:
+    return
+  queue=[root]
+  while queue:
+    current=queue.pop(0)
+    print(current.data,end=" ")
+    if current.left:
+      queue.append(current.left)
+    if current.right:
+      queue.append(current.right)
+
+
+def preOrder(root):
+    if root is None:
+        return
+    
+    print(root.data,end=" ")
+    preOrder(root.left)
+    preOrder(root.right)
+
+def inOrder(root):
+    if root is None:
+        return
+    
+    inOrder(root.left)
+    print(root.data,end=" ")
+    inOrder(root.right)
+
+def postOrder(root):
+    if root is None:
+        return
+    
+    postOrder(root.left)
+    postOrder(root.right)
+    print(root.data,end=" ")
+
+def count_nodes_dfs(root):
+    if root is None:
+        return 0
+
+    stack = [root]
+    count = 0
+
+    while stack:
+        node = stack.pop()
+        count += 1
+
+        # Push children to stack
+        if node.right:
+            stack.append(node.right)
+        if node.left:
+            stack.append(node.left)
+
+    return count
+    
+values=list(map(int,input("enter the values: ").split()))
+root=None
+for i in values:
+    root=build_tree(root,i)
+
+print("\npreorder traversal- ")
+preOrder(root)
+
+print("\ninorder traversal- ")
+inOrder(root)
+
+print("\npostorder traversal- ")
+postOrder(root)
+print("\ncount of node")
+print(count_nodes_dfs(root))
+
+
+#tree implementation
+#count leaf nodes
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+
+#Build the class for Tree Operations
+def build_tree(root,data):
+    if root is None:
+        return Node(data)
+    
+    if data<root.data:
+        root.left=build_tree(root.left,data)
+    else:
+        root.right=build_tree(root.right,data)
+
+    return root
+
+
+#BFS traversal
+def bfs(root):
+  if root is None:
+    return
+  queue=[root]
+  while queue:
+    current=queue.pop(0)
+    print(current.data,end=" ")
+    if current.left:
+      queue.append(current.left)
+    if current.right:
+      queue.append(current.right)
+
+
+def preOrder(root):
+    if root is None:
+        return
+    
+    print(root.data,end=" ")
+    preOrder(root.left)
+    preOrder(root.right)
+
+def inOrder(root):
+    if root is None:
+        return
+    
+    inOrder(root.left)
+    print(root.data,end=" ")
+    inOrder(root.right)
+
+def postOrder(root):
+    if root is None:
+        return
+    
+    postOrder(root.left)
+    postOrder(root.right)
+    print(root.data,end=" ")
+def count_leaf_nodes_stack(root):
+    if root is None:
+        return 0
+
+    stack = [root]
+    leaf_count = 0
+
+    while stack:
+        node = stack.pop()
+
+        # Check if leaf node
+        if node.left is None and node.right is None:
+            leaf_count += 1
+
+        if node.right:
+            stack.append(node.right)
+        if node.left:
+            stack.append(node.left)
+
+    return leaf_count
+
+    
+values=list(map(int,input("enter the values: ").split()))
+root=None
+for i in values:
+    root=build_tree(root,i)
+
+print("\npreorder traversal- ")
+preOrder(root)
+
+print("\ninorder traversal- ")
+inOrder(root)
+
+print("\npostorder traversal- ")
+postOrder(root)
+
+print("\n count leaf nodes")
+print(count_leaf_nodes_stack(root))
+
+
+#tree implementation
+#height of tree
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+
+#Build the class for Tree Operations
+def build_tree(root,data):
+    if root is None:
+        return Node(data)
+    
+    if data<root.data:
+        root.left=build_tree(root.left,data)
+    else:
+        root.right=build_tree(root.right,data)
+
+    return root
+
+
+#BFS traversal
+def bfs(root):
+  if root is None:
+    return
+  queue=[root]
+  while queue:
+    current=queue.pop(0)
+    print(current.data,end=" ")
+    if current.left:
+      queue.append(current.left)
+    if current.right:
+      queue.append(current.right)
+
+
+def preOrder(root):
+    if root is None:
+        return
+    
+    print(root.data,end=" ")
+    preOrder(root.left)
+    preOrder(root.right)
+
+def inOrder(root):
+    if root is None:
+        return
+    
+    inOrder(root.left)
+    print(root.data,end=" ")
+    inOrder(root.right)
+
+def postOrder(root):
+    if root is None:
+        return
+    
+    postOrder(root.left)
+    postOrder(root.right)
+    print(root.data,end=" ")
+def height_of_tree_stack(root):
+    if root is None:
+        return 0
+
+    stack = [(root, 1)]
+    max_height = 0
+
+    while stack:
+        node, height = stack.pop()
+        max_height = max(max_height, height)
+
+        if node.left:
+            stack.append((node.left, height + 1))
+        if node.right:
+            stack.append((node.right, height + 1))
+
+    return max_height
+
+
+    
+values=list(map(int,input("enter the values: ").split()))
+root=None
+for i in values:
+    root=build_tree(root,i)
+
+print("\npreorder traversal- ")
+preOrder(root)
+
+print("\ninorder traversal- ")
+inOrder(root)
+
+print("\npostorder traversal- ")
+postOrder(root)
+
+print("\n height of tree")
+print(height_of_tree_stack(root))
+
+
+#tree implementation
+#height of tree
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+
+#Build the class for Tree Operations
+def build_tree(root,data):
+    if root is None:
+        return Node(data)
+    
+    if data<root.data:
+        root.left=build_tree(root.left,data)
+    else:
+        root.right=build_tree(root.right,data)
+
+    return root
+
+
+#BFS traversal
+def bfs(root):
+  if root is None:
+    return
+  queue=[root]
+  while queue:
+    current=queue.pop(0)
+    print(current.data,end=" ")
+    if current.left:
+      queue.append(current.left)
+    if current.right:
+      queue.append(current.right)
+
+
+def preOrder(root):
+    if root is None:
+        return
+    
+    print(root.data,end=" ")
+    preOrder(root.left)
+    preOrder(root.right)
+
+def inOrder(root):
+    if root is None:
+        return
+    
+    inOrder(root.left)
+    print(root.data,end=" ")
+    inOrder(root.right)
+
+def postOrder(root):
+    if root is None:
+        return
+    
+    postOrder(root.left)
+    postOrder(root.right)
+    print(root.data,end=" ")
+def height_of_tree_stack(root):
+    if root is None:
+        return 0
+
+    stack = [(root, 1)]
+    max_height = 0
+
+    while stack:
+        node, height = stack.pop()
+        max_height = max(max_height, height)
+
+        if node.left:
+            stack.append((node.left, height + 1))
+        if node.right:
+            stack.append((node.right, height + 1))
+
+    return max_height
+
+
+    
+values=list(map(int,input("enter the values: ").split()))
+root=None
+for i in values:
+    root=build_tree(root,i)
+
+print("\npreorder traversal- ")
+preOrder(root)
+
+print("\ninorder traversal- ")
+inOrder(root)
+
+print("\npostorder traversal- ")
+postOrder(root)
+
+print("\n height of tree")
+print(height_of_tree_stack(root))
+
+
